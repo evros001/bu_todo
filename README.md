@@ -1,6 +1,6 @@
 things that confuse me: 
 
-this part in List.js, "<span className="glyphicon glyphicon-remove" style={styles.removeItem} onClick={this.props.remove.bind(null, index)}>"
+this part in List.js, "< span className="glyphicon glyphicon-remove" style={styles.removeItem} onClick={this.props.remove.bind(null, index)}>"
 
 the componentDidMount specifics, especially with firebase, "  
 
