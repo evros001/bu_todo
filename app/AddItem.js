@@ -12,7 +12,8 @@ var AddItem = React.createClass({
     })
   },
   handleSubmit: function(e){
-    if(e.keyCode === 13){
+  	console.log(e.type);
+    if(e.keyCode === 13 || e.type === "click"){
       this.props.add(this.state.newItem);
       this.setState({
         newItem: ''
@@ -20,14 +21,20 @@ var AddItem = React.createClass({
     }
   },
   render: function(){
+  	var styles = {
+	  	submit: {
+	  		display: "flex"
+	  	}
+	  };
     return (
-      <div>
+      <div style={styles.submit}>
         <input type="text" 
           className="form-control" 
           value={this.state.newItem} 
           placeholder="New Item" 
           onKeyDown={this.handleSubmit} 
           onChange={this.handleChange} />
+        <input type="submit" onClick={this.handleSubmit} />
       </div>
     )
   }

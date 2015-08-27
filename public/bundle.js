@@ -20509,7 +20509,8 @@
 	    })
 	  },
 	  handleSubmit: function(e){
-	    if(e.keyCode === 13){
+	  	console.log(e.type);
+	    if(e.keyCode === 13 || e.type === "click"){
 	      this.props.add(this.state.newItem);
 	      this.setState({
 	        newItem: ''
@@ -20517,14 +20518,20 @@
 	    }
 	  },
 	  render: function(){
+	  	var styles = {
+		  	submit: {
+		  		display: "flex"
+		  	}
+		  };
 	    return (
-	      React.createElement("div", null, 
+	      React.createElement("div", {style: styles.submit}, 
 	        React.createElement("input", {type: "text", 
 	          className: "form-control", 
 	          value: this.state.newItem, 
 	          placeholder: "New Item", 
 	          onKeyDown: this.handleSubmit, 
-	          onChange: this.handleChange})
+	          onChange: this.handleChange}), 
+	        React.createElement("input", {type: "submit", onClick: this.handleSubmit})
 	      )
 	    )
 	  }
